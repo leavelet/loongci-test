@@ -6,7 +6,7 @@ steps:
   - name: test
     commands:
     - cd gcc
-    - core-testing-loong64-build -- --nocheck
+    - core-testing-loong64-build -- -- --nocheck
 
 node:
   type: user
