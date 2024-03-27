@@ -5,6 +5,7 @@ name: default
 steps:
   - name: test
     image: loongcr.lcpu.dev/lcpu/archlinux:base-devel
+    privileged: true
     commands:
     - cd gcc
     - pacman -Sy && pacman -S --noconfirm --needed fakeroot devtools
@@ -12,7 +13,3 @@ steps:
     - core-testing-loong64-build -- --nocheck
 node:
   type: user
-services:
-- name: docker
-  image: loongcr.lcpu.dev/lcpu/archlinux:base-devel
-  privileged: true
