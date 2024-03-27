@@ -12,3 +12,7 @@ steps:
     - core-testing-loong64-build -- --nocheck
 node:
   type: user
+services:
+- name: docker
+  image: loongcr.lcpu.dev/lcpu/archlinux:base-devel
+  privileged: true
