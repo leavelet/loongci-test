@@ -3,12 +3,14 @@ type: docker
 name: default
 
 steps:
-- name: test
-  image: loongcr.lcpu.dev/lcpu/archlinux:base-devel
-  commands:
-  - cd gcc
-  - pacman -S --noconfirm --needed fakeroot devtools
-  - echo 'MAKEFLAGS="-j64"' | sudo tee -a /etc/makepkg.conf
-  - useradd builduser -m
-  - chown -R builduser /drone/src/
-  - sudo -u builduser bash -c 'cd $(pwd) && core-testing-loong64-build -- --nocheck'
+  - name: test
+    image: loongcr.lcpu.dev/lcpu/archlinux:base-devel
+    commands:
+    - cd gcc
+    - pacman -S --noconfirm --needed fakeroot devtools
+    - echo 'MAKEFLAGS="-j64"' | sudo tee -a /etc/makepkg.conf
+    - useradd builduser -m
+    - chown -R builduser /drone/src/
+    - sudo -u builduser bash -c 'cd $(pwd) && core-testing-loong64-build -- --nocheck'
+node:
+  size: user
