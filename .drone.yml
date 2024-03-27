@@ -1,15 +1,12 @@
 kind: pipeline
-type: docker
+type: exec
 name: default
 
 steps:
   - name: test
-    image: loongcr.lcpu.dev/lcpu/archlinux:base-devel
-    privileged: true
     commands:
     - cd gcc
     - pacman -Sy && pacman -S --noconfirm --needed fakeroot devtools
-    - echo 'MAKEFLAGS="-j64"' | sudo tee -a /etc/makepkg.conf
     - core-testing-loong64-build -- --nocheck
 node:
   type: user
