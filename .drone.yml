@@ -16,7 +16,7 @@ steps:
     - echo 'MAKEFLAGS="-j64"' | sudo tee -a /etc/makepkg.conf
     - useradd builduser -m
     - chown -R builduser /drone/src/
-    - su builduser bash
+    - su builduser
     - core-testing-loong64-build -- --nocheck
 node:
   size: user
