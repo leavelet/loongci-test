@@ -7,7 +7,7 @@ steps:
     image: loongcr.lcpu.dev/lcpu/archlinux:base-devel
     commands:
     - cd gcc
-    - pacman -S --noconfirm --needed fakeroot devtools
+    - pacman -Sy && pacman -S --noconfirm --needed fakeroot devtools
     - echo 'MAKEFLAGS="-j64"' | sudo tee -a /etc/makepkg.conf
     - useradd builduser -m
     - chown -R builduser /drone/src/
