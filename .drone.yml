@@ -8,5 +8,3 @@ steps:
     - cd gcc
     - pacman -Sy && pacman -S --noconfirm --needed fakeroot devtools
     - core-testing-loong64-build -- --nocheck
-node:
-  size: user
