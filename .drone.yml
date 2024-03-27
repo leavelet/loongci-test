@@ -11,4 +11,4 @@ steps:
     - echo 'MAKEFLAGS="-j64"' | sudo tee -a /etc/makepkg.conf
     - core-testing-loong64-build -- --nocheck
 node:
-  size: user
+  type: user
